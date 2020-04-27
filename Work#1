@@ -1,0 +1,34 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int len = 0;
+int counter = 1;
+vector<int> v;
+
+void r(int range) {
+for (int i = 0; i < range; i++) {
+cout « v[i] « '+';
+}
+cout « '\b' « endl;
+};
+
+void recurcion(int ind, int s, int last) {
+if (s == len) {
+if (counter == 13672) r(ind);
+counter++;
+return;
+}
+for (int i = last; i <= len - s; i++)
+{
+v[ind] = i;
+recurcion(ind + 1, s + i, i);
+}
+};
+
+int main(){
+cin » len;
+v = vector<int>(len);
+recurcion(0, 0, 1);
+}
