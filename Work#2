@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+	int len, s;
+	cin >> len >> s;
+	vector<int> v(len);
+	int q = len-1;
+	int result = 0;
+	for (int i = 0; i < len; i++)
+	{
+		cin >> v[i];
+	}
+	sort(v.begin(), v.end());
+	while (s > 0)
+	{
+		if (s >= v[q])
+		{
+			++result;
+			s -= v[q];
+		}
+		else
+			--q;
+	}
+	cout << result;
+}
